@@ -77,7 +77,7 @@ jobs:
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
         echo "image=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" >> $GITHUB_OUTPUT
     - name: Download task definition
-        run: |
+        run: 
           aws ecs describe-task-definition --task-definition ${{ secrets.ECS_TASK_DEFINITION }} --region ${{ secrets.AWS_REGION }} > task-definition.json
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}

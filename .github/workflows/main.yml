@@ -46,7 +46,8 @@ jobs:
         echo "image=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" >> $GITHUB_ENV
 
     - name: Print new image
-      run: echo "New image: ${{ env.image }}"
+      run: |
+        echo "New image: ${{ env.image }}"
 
     - name: Download task definition
       run: |
@@ -64,7 +65,8 @@ jobs:
         jq '.taskDefinition | {family, taskRoleArn, executionRoleArn, networkMode, containerDefinitions, volumes, placementConstraints, requiresCompatibilities, cpu, memory, tags, pidMode, ipcMode, proxyConfiguration, inferenceAccelerators, ephemeralStorage, runtimePlatform}' new-task-definition.json > updated-task-definition.json
 
     - name: Print updated task definition
-      run: cat updated-task-definition.json
+      run: |
+        cat updated-task-definition.json
 
     - name: Register new task definition
       id: register-task-def
@@ -77,7 +79,8 @@ jobs:
         AWS_REGION: ${{ secrets.AWS_REGION }}
 
     - name: Print task definition ARN
-      run: echo "Registered Task Definition ARN: ${{ env.taskDefinitionArn }}"
+      run: |
+        echo "Registered Task Definition ARN: ${{ env.taskDefinitionArn }}"
 
     - name: Update ECS service
       run: |

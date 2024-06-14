@@ -1,0 +1,22 @@
+{
+  "family": "my-task",
+  "networkMode": "awsvpc",
+  "requiresCompatibilities": ["FARGATE"],
+  "cpu": "256",
+  "memory": "512",
+  "executionRoleArn": "aws_iam_role.ecs_task_execution_role.arn",
+  "taskRoleArn": "aws_iam_role.ecs_task_execution_role.arn",
+  "containerDefinitions": [
+    {
+      "name": "my-container-api",
+      "image": "489277949068.dkr.ecr.<region>.amazonaws.com/tiago-ntconsult:latest",
+      "essential": true,
+      "portMappings": [
+        {
+          "containerPort": 8080,
+          "hostPort": 8080
+        }
+      ]
+    }
+  ]
+}

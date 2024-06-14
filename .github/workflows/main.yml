@@ -58,12 +58,6 @@ jobs:
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         AWS_REGION: ${{ secrets.AWS_REGION }}
 
-    - name: Update task definition with new image
-      id: update-task-def
-      run: |
-        NEW_IMAGE="${{ steps.login-ecr.outputs.registry }}/${{ secrets.ECR_REPOSITORY }}:${{ github.sha }}"
-        jq --arg IMAGE "$NEW_IMAGE" '.taskDefinition.containerDefinitions[0].image = $IMAGE' task-definition.json > new-task-definition.json
-        jq '.taskDefinition | {family: .family, networkMode: .networkMode, requiresCompatibilities: .requiresCompatibilities, cpu: .cpu, memory: .memory, containerDefinitions: .containerDefinitions, executionRoleArn: .executionRoleArn, taskRoleArn: .taskRoleArn}' new-task-definition.json > updated-task-definition.json
     - name: Register new task definition
       id: register-task-def
       run: |

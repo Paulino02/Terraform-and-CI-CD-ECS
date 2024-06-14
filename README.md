@@ -15,7 +15,7 @@ pelo Terraform.
 Configurei o ALB no terraform para acessar a API, containerizada no ECS, via browser. Esse método é escalável e
 fornece alta disponibilidade para aplicações containerizadas na AWS.
 
-# Dificuldadea
+# Dificuldades
 Tive problemas com a task-definition do ECS porque estava faltando uma permissão IAM que não tinha sido posta no código
 do Terraform. Também tive um pouco de dificuldade inicial em entender o funcionamento da API, visto que nunca tinha estudado
 API, mas logo consegui entender.

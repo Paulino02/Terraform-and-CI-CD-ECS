@@ -66,7 +66,7 @@ jobs:
     - name: Register new task definition
       id: register-task-def
       run: |
-        TASK_DEF_ARN=$(aws ecs register-task-definition --cli-input-json file://path/to/your/task-definition.json --region ${{ secrets.AWS_REGION }} --query 'taskDefinition.taskDefinitionArn' --output text)
+        TASK_DEF_ARN=$(aws ecs register-task-definition --cli-input-json file://task-definition.json --region ${{ secrets.AWS_REGION }} --query 'taskDefinition.taskDefinitionArn' --output text)
         echo "::set-output name=taskDefinitionArn::$TASK_DEF_ARN"
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}

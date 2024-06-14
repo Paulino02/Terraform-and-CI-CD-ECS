@@ -1,22 +1,59 @@
 {
-  "family": "my-task",
-  "networkMode": "awsvpc",
-  "requiresCompatibilities": ["FARGATE"],
-  "cpu": "256",
-  "memory": "512",
-  "executionRoleArn": "arn:aws:iam::123456789012:role/ecsTaskExecutionRole",
-  "taskRoleArn": "arn:aws:iam::123456789012:role/ecsTaskExecutionRole",
-  "containerDefinitions": [
-    {
-      "name": "my-container-api",
-      "image": "489277949068.dkr.ecr.<region>.amazonaws.com/tiago-ntconsult:latest",
-      "essential": true,
-      "portMappings": [
+    "taskDefinitionArn": "arn:aws:ecs:us-east-1:489277949068:task-definition/my-task:11",
+    "containerDefinitions": [
         {
-          "containerPort": 8080,
-          "hostPort": 8080
+            "name": "my-container-api",
+            "image": "489277949068.dkr.ecr.us-east-1.amazonaws.com/tiago-ntconsult:latest",
+            "cpu": 0,
+            "portMappings": [
+                {
+                    "containerPort": 8080,
+                    "hostPort": 8080,
+                    "protocol": "tcp"
+                }
+            ],
+            "essential": true,
+            "environment": [],
+            "mountPoints": [],
+            "volumesFrom": [],
+            "systemControls": []
         }
-      ]
-    }
-  ]
+    ],
+    "family": "my-task",
+    "taskRoleArn": "arn:aws:iam::489277949068:role/ecs-task-execution-role",
+    "executionRoleArn": "arn:aws:iam::489277949068:role/ecs-task-execution-role",
+    "networkMode": "awsvpc",
+    "revision": 11,
+    "volumes": [],
+    "status": "ACTIVE",
+    "requiresAttributes": [
+        {
+            "name": "com.amazonaws.ecs.capability.ecr-auth"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.task-iam-role"
+        },
+        {
+            "name": "ecs.capability.execution-role-ecr-pull"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
+        },
+        {
+            "name": "ecs.capability.task-eni"
+        }
+    ],
+    "placementConstraints": [],
+    "compatibilities": [
+        "EC2",
+        "FARGATE"
+    ],
+    "requiresCompatibilities": [
+        "FARGATE"
+    ],
+    "cpu": "256",
+    "memory": "512",
+    "registeredAt": "2024-06-14T13:06:03.715Z",
+    "registeredBy": "arn:aws:iam::489277949068:user/awscli",
+    "tags": []
 }

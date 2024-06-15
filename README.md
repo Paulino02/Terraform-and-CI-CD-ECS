@@ -1,6 +1,6 @@
 # Infraestrutura
 Utilizei o Terraform para subir minha infra na AWS.
-Serviços que utilizei: IAM, VPC, ECR, ECS, Application Load Balancer (ALB) E Target Group.
+Serviços que utilizei: IAM, VPC, ECR, ECS, Application Load Balancer (ALB) e Target Group.
 
 # Dockerfile
 Criei um dockerfile para Containerizar a API Flask do arquivo comment.py

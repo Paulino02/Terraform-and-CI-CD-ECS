@@ -47,3 +47,16 @@ curl -sv host/api/comment/list/1
 - listagem matéria 2
 
 curl -sv host/api/comment/list/2
+
+# Monitoramento dos serviços e métricas da aplicação
+Por padrão, o ECS oferece monitoramento básico e coleta de métricas para containers que estão rodando uma aplicação. 
+Essas métricas são coletadas e disponibilizadas através do Amazon CloudWatch, o serviço de monitoramento e gerenciamento de logs da AWS.
+Aqui estão algumas das métricas básicas que o ECS coleta:
+
+- CPU Utilization: Utilização da CPU pelos containers.
+
+- Memory Utilization: Utilização de memória pelos containers.
+
+- Disk I/O: Operações de entrada/saída de disco.
+
+- Network I/O: Tráfego de rede (dados enviados e recebidos).

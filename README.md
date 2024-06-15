@@ -60,3 +60,5 @@ Aqui estão algumas das métricas básicas que o ECS coleta:
 - Disk I/O: Operações de entrada/saída de disco.
 
 - Network I/O: Tráfego de rede (dados enviados e recebidos).
+
+Também criei um alarme no CloudWatch, via Terraform, baseado nas métricas coletadas para alertar sobre comportamentos anômalos ou uso excessivo de recursos.

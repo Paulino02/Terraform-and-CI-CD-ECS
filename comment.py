@@ -55,8 +55,6 @@ def hello():
 </html>
 '''
 
-
-
 @app.route('/api/comment/new', methods=['POST'])
 def create_comment():
     data = request.get_json()
